@@ -2,6 +2,14 @@
 	session_start();
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (isset($_SESSION['user'])) {
+			
+                        if(!isset($_POST['token']) || $_POST['token'] == "" || $_SESSION['token'] != $_POST['token']) {
+                                $_SESSION['error'] = 'Upload file forgery detected';
+                                header('Location: login.php');
+                                exit();
+                        }
+
+			
 			$username = $_SESSION['user'];
 			$file = $_FILES["file"];
 			$filename = $file["name"];

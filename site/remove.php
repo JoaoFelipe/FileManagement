@@ -2,6 +2,13 @@
 	session_start();
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (isset($_SESSION['user'])) {
+
+			if(!isset($_POST['token']) || $_POST['token'] == "" || $_SESSION['token'] != $_POST['token']) {
+				$_SESSION['error'] = 'Remove file forgery detected';
+ 				header('Location: login.php');
+				exit();
+			}
+
 			//if ($_POST['link']	
 			$username = $_SESSION['user'];
 			$file = $_POST['link'];

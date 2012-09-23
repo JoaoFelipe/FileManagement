@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>File Management - Login</title>
-</head>
-<body>
 <?php
+        $title = "Login";
+        $redirect = "home.php";
+	$user_logged = false; 
+        $elements_by_page = 20;
+        include "header.php";
+?>
+<?php
+	include "functions.php";
 	$usersfile = "../../FileManagement/users.txt";
-	session_start();
-	if (isset($_SESSION['user'])) {
-		header('Location: home.php');
-		exit();
-	}
-	if(isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-   		echo '<span class="error">'.$_SESSION['error'].'</span>';
-   		unset($_SESSION['error']);
-	}
 	if (isset($_POST['username'])) {
 		$login = $_POST["username"];		
 		if ($login == "") {
-			echo '<span class="error">Empty username</span>';
+			echo '<div class="error" id="Login">Empty username</div>';
 		} else {
 			$found = false;
 			$fh = fopen($usersfile, 'r');
@@ -31,23 +24,28 @@
 			fclose($fh);
 			if (isset($_REQUEST['login'])) {
 				if (!$found) {
-					echo '<span class="error">Username not found</span>';
+					echo '<div class="error" id="Login">Username not found</div>';
 				} else {
 					$_SESSION['user'] = $login;
+					$_SESSION['token'] = random_token();
 					header('Location: home.php');
 					exit();
 				}
 			} else {
 				if ($found) {
-                                        echo '<span class="error">Username already in use</span>';
-                                } else {
+                                        echo '<div class="error" id="Login">Username already in use</div>';
+                                } else if (!preg_match('/^[\w_\-]+$/', $login)) {
+					echo '<div class="error" id="Login">Invalid username</div>';
+
+				} else {
 					$fh = fopen($usersfile, "a+");
 					$size = filesize($usersfile);
 					fread($fh, $size);
 					fwrite($fh, "\n".$login);
 					fclose($fh);
-					mkdir("users/$login", 0777);
+					mkdir("../../FileManagement/users/$login", 0777);
                                         $_SESSION['user'] = $login;
+					$_SESSION['token'] = random_token();
                                         header('Location: home.php');
                                         exit();
                                 }
@@ -56,17 +54,19 @@
 		}
 	} 
 ?>
-	<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
-		<p>
-			<label for="username">Username:</label>
-			<input type="text" name="username" id="username"/>
-		</p>
-		<p>
-			<input type="submit" name="login" value="Login"/>
-			<input type="submit" name="signup" value="Sign up"/>
-		</p>
-	</form>
-
+	<div class="login-box">
+		<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+			<p class="username">
+				<label for="username">Username:</label>
+				<input type="text" name="username" id="username"/>
+			</p>
+			<p class="buttons">
+				<input type="submit" name="login" value="Login"/>
+				<input type="submit" name="signup" value="Sign up"/>
+			</p>
+		</form>
+	</div>
+</div>
 </body>
 </html>
 
