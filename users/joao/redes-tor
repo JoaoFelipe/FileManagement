@@ -1,0 +1,50 @@
+Tor: oque é overview do overview
+    /øq é? phedro
+    pq usa e quem usa azis
+    baseado no onion project (de onde veio) jf
+    oque é o tor hj phedro
+    
+Anonimato -> pq usa e quem usa Azis
+    -Análise de trafego
+         ->rastrear comportamentos e interesses->(ex:steam)
+         ->Como funciona: -> img pkg-header-dados-cript ou nao
+            //O pacote é dividido em dados e cabeçalhos usado para roteamento. 
+
+Onion-routing: jf
+    ->técnica de comunicação para preservar segurança e anonimato
+    ->projeto da us navy 
+    ->onion routers -->img cebola aberta inception passando para uma menor roteador passando cebola sendo reduzida
+        ->analise
+
+Tor phedro
+    ->imgs overview com paths dif
+    ->rotas
+        ->random
+        ->tor relay
+        ->MaxCircuitDirtiness torrc 
+        
+Utilidade azis
+     -> não serem rastreadas
+     -> acessar conteúdo bloqueado -->ic 4shared =true
+     -> tráfego de conteúdo confidencial 
+        ->post
+        ->get
+    -> law enforcement or not
+    -> esconder uma árvore na floresta
+    
+Limitações jf
+    -> forever alone #fail
+    -> esconder o ip não basta
+    -> bundle
+
+ Bundle e Projects phedro
+    -> Tor Browser
+    -> Torbutton
+    -> Orbot
+    -> Tails
+    -> Tor Cloud
+    -> Obfsproxy
+    -> Shadow
+    -> Tor2web
+    
+    
