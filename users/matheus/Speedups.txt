@@ -1,0 +1,8 @@
+Monte Carlo paralelo : 25.7252311707 segundos.
+Monte Carlo paralelo : 0.3100839853 segundos.
+Monte Carlo paralelo : 0.3083600104 segundos.
+Monte Carlo paralelo : 20.0691318512 segundos.
+Monte Carlo paralelo : 0.3039509952 segundos.
+Monte Carlo paralelo : 2.9514219761 segundos.
+Monte Carlo sequencial: 2.9237399101 segundos.
+Monte Carlo paralelo: 213.7448425293 segundos.

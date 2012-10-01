@@ -1,0 +1,19 @@
+<package>
+  <description brief="front_end">
+
+     front_end
+
+  </description>
+  <author>Tiago Pimentel</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/front_end</url>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+  <depend package="opencv2"/>
+  <depend package="tf"/>
+  <rosdep name="fltk"/>
+
+</package>
+
+
